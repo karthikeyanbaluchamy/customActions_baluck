@@ -1,12 +1,9 @@
 
-const core= require('@actions/core')
-const github= require('@actions/github')
-const exec= require('@actions/exec')
+const core = require('@actions/core');
 
-function run(){
-	
-	core.notice('hello from custom java script') 
-	
+try {
+  const name = core.getInput('name');
+  console.log(`Hello ${name}! 👋`);
+} catch (error) {
+  core.setFailed(error.message);
 }
-
-run();
