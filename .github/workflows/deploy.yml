@@ -10,9 +10,12 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: Load & get dependencies
+        id: opv
         uses: ./.github/actions/cached-deps
         with:
           caching: 'false'
+      - name: Output information
+        run: echo "cache used ${{ steps.opv.outputs.used-cache }} "
   test:
     runs-on: ubuntu-latest
     steps:
