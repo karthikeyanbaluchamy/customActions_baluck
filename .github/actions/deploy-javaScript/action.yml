@@ -3,4 +3,10 @@ description: 'Deploy static web site'
 runs:
   using: 'node16'
   main: 'main.js'
+inputs:
+  name:
+    description: 'Who to greet'
+    required: false
+    default: 'World'
+  
 
