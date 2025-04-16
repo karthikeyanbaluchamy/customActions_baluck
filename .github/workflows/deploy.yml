@@ -62,4 +62,20 @@ jobs:
         run: ls
       - name: Deploy site
         run: echo "Deploying..."
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # You can choose your preferred Node.js version
+      # Step to install dependencies (including @actions/core)
+      - name: Install dependencies
+        run: npm install @actions/core
+      - name: Load & get dependencies  
+        uses: ./.github/actions/deploy-javaScript
+        with:
+          name: 'karthi'   
 
